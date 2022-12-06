@@ -1,1 +1,3 @@
-# Project 2: Five Lives Game Forum
+# five-lives-game-forum
+Group A's Project 2 for UofM Coding Bootcamp
+
