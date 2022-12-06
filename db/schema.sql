@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS gameforum_db;
+CREATE DATABASE gameforum_db;
