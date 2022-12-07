@@ -18,7 +18,7 @@ Comment.init(
             len: [1]
           }
         },
-          starting_date: {
+          date_created: {
           type: DataTypes.DATE,
           allowNull: false,
         },
