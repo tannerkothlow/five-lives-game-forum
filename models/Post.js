@@ -22,10 +22,27 @@ Post.init(
               len: [1]
           }
         },
-            starting_date: {
+            post_type: {
+              type: DataTypes.STRING,
+              allowNull: false
+            },
+            date_created: {
             type: DataTypes.DATE,
             allowNull: false,
           },
+            genre_id: {
+              references: {
+                model: 'genre',
+                key: 'id'
+              }
+            },
+            game_id: {
+              references: {
+                model: 'game',
+                key: 'id'
+              }
+            },
+          
             user_id: {
             type: DataTypes.INTEGER,
             references: {
