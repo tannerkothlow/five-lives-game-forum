@@ -1,11 +1,24 @@
 const router = require('express').Router();
-const { Post } = require('../models');
+const withAuth = require('../utils/auth');
+const { User, Post, Comment } = require('../models');
 
-// GET '/'
-// render newsubmission
-// if req.session.logged_in is not true, redirects to login
+// /
 
-// POST '/'
-// takes in information from the app and creates a new post, redirects to submissions/:id of that post afterwards
+router.get('/', withAuth, async (req, res) => {
+    res.render('new-post')
+});
 
-module.exports = router;
+router.post('/', async (req, res) => {
+    try {
+        const newPost = await Post.create({
+            title: req.body.title,
+            description: req.body.description,
+            user_id: req.session.user_id,
+        });
+        res.status(200).json(newPost);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+

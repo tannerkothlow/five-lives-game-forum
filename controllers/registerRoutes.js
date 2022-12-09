@@ -7,7 +7,7 @@ const { User } = require('../models');
 router.get('/', async (req, res) => {
     try {
         if (req.session.logged_in) {
-            res.redirect('/').json({ message: 'Cannot register for a new account while logged in'});
+            res.redirect('/');
             return;
         }
         res.render('register')
