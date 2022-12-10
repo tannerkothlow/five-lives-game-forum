@@ -32,13 +32,18 @@ Post.belongsTo(User, {
     foreignKey: 'post_id'
 });
 
-  Genre.belongsTo(Post, {
+Genre.belongsTo(Post, {
     foreignKey: 'genre_id'
-  });
+});
 
-  Game.belongsTo(Post, {
+Game.belongsTo(Post, {
     foreignKey: 'game_id'
-  });
-  
+});
+
+// Game belongs to genre
+
+// Genre has many games
+
+// (Game can be in multiple genres at once)
 
 module.exports = { User, Post, Comment, Genre, Game };
