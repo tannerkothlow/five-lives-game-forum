@@ -60,5 +60,9 @@ const genreData = [
     {
         name: 'Platformer',
         description: '',
-    },
-]
+    }
+];
+
+const seedGenres = () => Genre.bulkCreate(genreData);
+
+module.exports = seedGenres;
