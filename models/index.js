@@ -4,6 +4,7 @@ const Comment = require('./Comment');
 const Genre = require('./Genre');
 const Game = require('./Game');
 
+
 User.hasMany(Post, {
     foreignkey: 'user_id'
 });
@@ -40,9 +41,14 @@ Game.belongsTo(Post, {
     foreignKey: 'game_id'
 });
 
-// Game belongs to genre
+Game.belongsTo(Genre, {
+    foreignKey: 'genre_id'
+});
 
 // Genre has many games
+Genre.hasMany(Game, {
+  foreignKey: 'genre_id'
+});
 
 // (Game can be in multiple genres at once)
 

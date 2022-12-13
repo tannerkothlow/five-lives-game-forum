@@ -32,12 +32,14 @@ Post.init(
             defaultValue: DataTypes.NOW,
           },
             genre_id: {
+              type: DataTypes.INTEGER,
               references: {
                 model: 'genre',
                 key: 'id'
               }
             },
             game_id: {
+              type: DataTypes.INTEGER,
               references: {
                 model: 'game',
                 key: 'id'
