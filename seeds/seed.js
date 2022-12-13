@@ -11,13 +11,13 @@ const seedAll = async () => {
 
     await seedGenres(); // Works
 
-    await seedGames();
+    await seedGames(); // Works
 
-    // await seedUsers(); // Works
+    await seedUsers(); // Works
 
-    // await seedPosts();
+    await seedPosts();
 
-    // await seedComments();
+    await seedComments();
 
     process.exit(0);
 };

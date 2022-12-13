@@ -6,7 +6,7 @@ const postData = [
         post_text: 'Best Moba out there, more comments to come',
         post_type: 'review',
         genre_id: 4,
-        game_id: 0,
+        game_id: 1,
         user_id: 1
     },
     {
@@ -14,7 +14,7 @@ const postData = [
         post_text: 'Really fun once you figure out what to do',
         post_type: 'review',
         genre_id: 12,
-        game_id: 0,
+        game_id: 1,
         user_id: 2
     },
    

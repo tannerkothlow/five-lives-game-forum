@@ -4,6 +4,7 @@ const Comment = require('./Comment');
 const Genre = require('./Genre');
 const Game = require('./Game');
 
+
 User.hasMany(Post, {
     foreignkey: 'user_id'
 });
