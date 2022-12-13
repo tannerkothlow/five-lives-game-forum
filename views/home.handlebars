@@ -1,11 +1,16 @@
-<ul class="reviews">
-  {{#each reviews}}
-    <li>{{this}}</li>
-  {{/each}}
-</ul>
-<br>
-<ul class="guides">
-  {{#each guides}}
-    <li>{{this}}</li>
-  {{/each}}
-</ul>
+{{#if reviews}}
+<section class="section">
+  <h1 class="title">Review: {{this.title}}</h1>
+  <h2 class="subtitle">
+   {{this.post_text}}
+  </h2>
+</section>
+{{/if}}
+{{#if guides}}
+<section class="section">
+  <h1 class="title">Guide: {{this.title}}</h1>
+  <h2 class="subtitle">
+   {{this.post_text}}
+  </h2>
+</section>
+{{/if}}
