@@ -53,7 +53,7 @@ router.get('/:id', async (req, res) => {
 // checks if req.session.logged_in is true before sending the comment, redirects to /login if false
 // takes in data from front end and creates a new comment
 
-router.post('/:id', withAuth, async (req, res) => {
+router.post('/:id', async (req, res) => {
     try {
         const commentData = await Comment.create({
             body: req.body.body,
@@ -99,7 +99,5 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json(err)
     }
 })
-
-module.exports = router;
 
 module.exports = router;
