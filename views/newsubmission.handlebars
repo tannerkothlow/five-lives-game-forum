@@ -2,7 +2,7 @@
     <div class="field">
       <label class="label">Title</label>
       <div class="control">
-        <input class="input" type="text" placeholder="Submission Title">
+        <input id="new-post-title" class="input" type="text" placeholder="Submission Title">
       </div>
     </div>
     
@@ -11,17 +11,26 @@
       <label class="label">Subject</label>
       <div class="control">
         <div class="select">
-          <select>
-            <option>Select dropdown</option>
-            <option>With options</option>
+          <select id="new-post-subject">
+            <option>Review</option>
+            <option>Guide</option>
           </select>
         </div>
+
+        <div class="select">
+          <select id="new-post-genre">
+            {{#each genres}}
+            <option>{{this.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+
       </div>
     </div>
     <div class="field">
       <label class="label">Submission</label>
       <div class="control">
-        <textarea class="textarea" placeholder="Submission Text"></textarea>
+        <textarea id="new-post-body" class="textarea" placeholder="Submission Text"></textarea>
       </div>
     </div>
     
@@ -33,7 +42,7 @@
     
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-link">Submit</button>
+        <button id="new-post-button" class="button is-link">Submit</button>
       </div>
       <div class="control">
         <button class="button is-link is-light">Cancel</button>

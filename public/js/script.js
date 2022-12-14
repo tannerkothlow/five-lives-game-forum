@@ -41,6 +41,7 @@ const newUser = async (event) => {
             alert('Oops! Something went wrong.')
         }
     }
+    
 };
 //logout
 const logout = async () => {
@@ -61,12 +62,14 @@ const newPost = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#new-post-title').value.trim();
-    const description = document.querySelector('#new-post-body').value.trim();
+    const postText = document.querySelector('#new-post-body').value.trim();
+    const postType = document.querySelector('#new-post-subject').value.trim().toLowerCase();
+    const genreName = document.querySelector('#new-post-genre').value.trim();
 
-    if (title && description) {
-        const response = await fetch('/post', {
+    if (title && postText && genreName) {
+        const response = await fetch('/new-submission', {
             method: 'POST',
-            body: JSON.stringify({ title, description }),
+            body: JSON.stringify({ title, postText, postType, genreName }),
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
@@ -125,23 +128,41 @@ const searchByTitle = async (event) => {
         method: 'POST',
         body: JSON.stringify({ searchTitle }),
         headers: { 'Content-Type': 'application/json' },
-    });
-    if (!response.ok) {
-        alert('No posts found with that title!')
+    }).then((response) => response.json()).then((data => {
+        console.log(data);
+        if(data.length) {
+            document.location.replace(`/submissions/${data[0].id}`)
+        } else {
+            alert('No posts found with that title!')
+        }
+    }))
+
+    // if (!response.ok) {
+    //     alert('No posts found with that title!')
+    // }
+};
+
+const searchByGenre = async (event) => {
+    event.preventDefault();
+
+    const searchGenre = document.querySelector('#genre-search-query').value.trim();
+
+    if (searchGenre != 'Select Genre') {
+        document.location.replace(`submissions/by-genre/${searchGenre}`);
     }
+    
+}
 
+if (document.querySelector('#login-button')) {
+    document
+        .querySelector('#login-button')
+        .addEventListener('click', loginFormHandler);
 };
 
-if (document.querySelector('.login-form')) {
+if (document.querySelector('#register-button')) {
     document
-        .querySelector('.login-form')
-        .addEventListener('submit', loginFormHandler);
-};
-
-if (document.querySelector('#register-form')) {
-    document
-        .querySelector('#register-form')
-        .addEventListener('submit', newUser);
+        .querySelector('#register-button')
+        .addEventListener('click', newUser);
 };
 
 if (document.querySelector('#logout-button')) {
@@ -150,10 +171,22 @@ if (document.querySelector('#logout-button')) {
         .addEventListener('click', logout);
 };
 
-if (document.querySelector('#new-post-form')) {
+if (document.querySelector('#title-search-button')) {
     document
-        .querySelector('#new-post-form')
-        .addEventListener('submit', newPost);
+        .querySelector('#title-search-button')
+        .addEventListener('click', searchByTitle);
+}
+
+if (document.querySelector('#genre-search-button')) {
+    document
+        .querySelector('#genre-search-button')
+        .addEventListener('click', searchByGenre);
+};
+
+if (document.querySelector('#new-post-button')) {
+    document
+        .querySelector('#new-post-button')
+        .addEventListener('click', newPost);
 };
 
 if (document.querySelector('#comment-form')) {
@@ -166,4 +199,3 @@ if (document.querySelector('#user-delete-button')) {
         .querySelector('#user-delete-button')
         .addEventListener('click', deletePost);
 }
-

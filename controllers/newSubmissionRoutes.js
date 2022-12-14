@@ -1,18 +1,30 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { User, Post, Comment } = require('../models');
+const { User, Post, Comment, Genre } = require('../models');
 
 // /
 
 router.get('/', withAuth, async (req, res) => {
-    res.render('new-post')
+    const genreData = await Genre.findAll();
+
+        const genres = genreData.map((genres) => genres.get({ plain: true }));
+        res.render('newsubmission', { genres });
 });
 
 router.post('/', async (req, res) => {
     try {
+        const getGenre = await Genre.findOne({
+            where: {
+                name: req.body.genreName,
+            }
+        })
+        
         const newPost = await Post.create({
             title: req.body.title,
-            description: req.body.description,
+            post_text: req.body.postText,
+            post_type: req.body.postType,
+            genre_id: getGenre.dataValues.id, 
+            game_id: 1,
             user_id: req.session.user_id,
         });
         res.status(200).json(newPost);
