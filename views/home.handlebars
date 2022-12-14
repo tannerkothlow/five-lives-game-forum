@@ -1,16 +1,21 @@
-{{#if reviews}}
+{{#if content.[0]}}
+{{#each content.[0]}}
 <section class="section">
   <h1 class="title">Review: {{this.title}}</h1>
   <h2 class="subtitle">
    {{this.post_text}}
   </h2>
 </section>
+{{/each}}
 {{/if}}
-{{#if guides}}
+
+{{#if content.[1]}}
+{{#each content.[1]}}
 <section class="section">
   <h1 class="title">Guide: {{this.title}}</h1>
   <h2 class="subtitle">
    {{this.post_text}}
   </h2>
 </section>
+{{/each}}
 {{/if}}
