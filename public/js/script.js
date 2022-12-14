@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/home');
         } else {
             alert(response.statusText);
         }
@@ -70,7 +70,7 @@ const newPost = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
-            document.location.replace(`/dashboard`);
+            document.location.replace(`/home`);
         } else {
             alert('Oops! Something went wrong.')
         }
@@ -109,7 +109,7 @@ const deletePost = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/home');
         } else {
             alert('Oops! Something went wrong.');
         }
