@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 
         const genres = genreData.map((genres) => genres.get({ plain: true }));
         
-        res.render('search', genres);
+        res.render('search', { genres });
     } catch (err){
         res.status(500).json(err);
     }
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
             const posts = postData.map((posts) => posts.get({ plain: true }));
 
             // Temp solution until redirects to submissions
-            res.render('submissions', posts);
+            res.render('submissions', { posts });
 
     } catch (err) {
         res.status(500).json(err);

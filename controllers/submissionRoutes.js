@@ -11,7 +11,9 @@ router.get('/', async (req, res) => {
             limit: 10,
         });
         const posts = postData.map((posts) => posts.get({ plain: true }));
-        res.render('submissions', posts);
+        console.log(posts);
+
+        res.render('submissions', { posts });
     } catch (err) {
         res.status(500).json(err)
     }
@@ -43,7 +45,7 @@ router.get('/:id', async (req, res) => {
         });
 
         const post = postData.get({ plain: true });
-        res.render('one-submission', post);
+        res.render('one-submission', { post });
     } catch (err) {
         res.status(500).json(err)
     }
@@ -66,7 +68,7 @@ router.get('/by-genre/:genre', async (req, res) => {
         });
         
         const posts = postData.map((posts) => posts.get({ plain: true }));
-        res.render('submissions', posts);
+        res.render('submissions', { posts });
     } catch (err) {
         res.status(500).json(err)
     }
