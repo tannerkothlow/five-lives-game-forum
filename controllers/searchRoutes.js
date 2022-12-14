@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
         const genreData = await Genre.findAll();
 
         const genres = genreData.map((genres) => genres.get({ plain: true }));
-        
         res.render('search', { genres });
     } catch (err){
         res.status(500).json(err);
