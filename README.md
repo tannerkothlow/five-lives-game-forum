@@ -6,7 +6,9 @@ We created a web application that functions as a video game forum. Users can pos
 
 ## Installation
 
-N/A
+Input a .env file to the root:
+
+![.env file example](env-example.png)
 
 ## Usage 
 
@@ -22,11 +24,16 @@ This web application was created using JavaScript, mySQL, Heroku, and Bulma CSS 
 
 ## Credits
 - [Bulma CSS Framework](https://bulma.io/)
+- [Handlebars.js](https://handlebarsjs.com/)
 - [Heroku](https://www.heroku.com/platform)
-- [mySQL](https://www.mysql.com/)
+- [mySQL2](https://www.mysql.com/)
 
 ## Features
 - Bulma CSS Framework
+- express
+- Handlebars.js
 - Heroku
 - JavaScript
-- mySQL
+- mySQL2
+- node
+
