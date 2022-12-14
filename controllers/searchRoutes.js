@@ -33,8 +33,6 @@ router.post('/', async (req, res) => {
                 }
             });
 
-            console.log(postData);
-
             if (!postData.length) {
                 res.status(400).json({ message: 'No submissions found with that title!' });
                 return;
@@ -42,8 +40,10 @@ router.post('/', async (req, res) => {
 
             const posts = postData.map((posts) => posts.get({ plain: true }));
 
+            console.log(posts);
+
             // Temp solution until redirects to submissions
-            res.render('submissions', { posts });
+            res.status(200).json(posts);
 
     } catch (err) {
         res.status(500).json(err);
