@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
 
         const content = [reviews, guides];
 
-        res.render('home', content);
+        res.render('home', { content });
     } catch (err) {
         res.status(400).json(err);
     }
