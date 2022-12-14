@@ -49,20 +49,22 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.get('/:genre', async (req, res) => {
+router.get('/by-genre/:genre', async (req, res) => {
     try {
+        console.log(req.params.genre);
         const genreID = await Genre.findOne({
             where: {
-                title: req.params.genre,
+                name: req.params.genre,
             },
         })
-        console.log(genreID);
+        
         
         const postData = await Post.findAll({
             where: {
-
+                genre_id: genreID.id,
             }
         });
+        
         const posts = postData.map((posts) => posts.get({ plain: true }));
         res.render('submissions', posts);
     } catch (err) {
