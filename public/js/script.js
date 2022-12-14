@@ -61,12 +61,14 @@ const newPost = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#new-post-title').value.trim();
-    const description = document.querySelector('#new-post-body').value.trim();
+    const postText = document.querySelector('#new-post-body').value.trim();
+    const postType = document.querySelector('#new-post-subject').value.trim().toLowerCase();
+    const genreName = document.querySelector('#new-post-genre').value.trim();
 
-    if (title && description) {
-        const response = await fetch('/post', {
+    if (title && postText && genreName) {
+        const response = await fetch('/new-submission', {
             method: 'POST',
-            body: JSON.stringify({ title, description }),
+            body: JSON.stringify({ title, postText, postType, genreName }),
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
@@ -180,10 +182,10 @@ if (document.querySelector('#genre-search-button')) {
         .addEventListener('click', searchByGenre);
 };
 
-if (document.querySelector('#new-post-form')) {
+if (document.querySelector('#new-post-button')) {
     document
-        .querySelector('#new-post-form')
-        .addEventListener('submit', newPost);
+        .querySelector('#new-post-button')
+        .addEventListener('click', newPost);
 };
 
 if (document.querySelector('#comment-form')) {
