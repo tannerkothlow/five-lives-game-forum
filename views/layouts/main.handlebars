@@ -39,7 +39,11 @@
                   </a>
                    <a class="navbar-item" href="/new-submission">New Submission</a>
                   </a>
+                  {{#if session.logged_in}}.
+                  <p id="logout-button" class="navbar-item">Logout</p>
+                  {{else}}
                   <a class="navbar-item" href="/login">Login</a>
+                  {{/if}}
                   </a>
                 </div>
               </div>

@@ -150,10 +150,10 @@ const searchByGenre = async (event) => {
     
 }
 
-if (document.querySelector('.login-form')) {
+if (document.querySelector('#login-button')) {
     document
-        .querySelector('.login-form')
-        .addEventListener('submit', loginFormHandler);
+        .querySelector('#login-button')
+        .addEventListener('click', loginFormHandler);
 };
 
 if (document.querySelector('#register-form')) {

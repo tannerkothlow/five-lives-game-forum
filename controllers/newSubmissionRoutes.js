@@ -5,7 +5,7 @@ const { User, Post, Comment } = require('../models');
 // /
 
 router.get('/', withAuth, async (req, res) => {
-    res.render('new-post')
+    res.render('newsubmission')
 });
 
 router.post('/', async (req, res) => {
