@@ -26,13 +26,17 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try{
         // If searching by title
+            console.log(req.body.searchTitle);
+
             const postData = await Post.findAll({
                 where: {
-                    title: req.body.title
+                    title: req.body.searchTitle
                 }
             });
 
-            if (!postData) {
+            console.log(postData);
+
+            if (!postData.length) {
                 res.status(400).json({ message: 'No submissions found with that title!' });
                 return;
             }
@@ -41,7 +45,7 @@ router.post('/', async (req, res) => {
 
             // Temp solution until redirects to submissions
             res.render('submissions', posts);
-            
+
     } catch (err) {
         res.status(500).json(err);
     }

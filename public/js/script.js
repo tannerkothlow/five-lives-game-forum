@@ -116,7 +116,27 @@ const deletePost = async (event) => {
     };
 };
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+const searchByTitle = async (event) => {
+    event.preventDefault();
+
+    const searchTitle = document.querySelector('#search-title').value.trim();
+
+    const response = await fetch('/search', {
+        method: 'POST',
+        body: JSON.stringify({ searchTitle }),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (!response.ok) {
+        alert('No posts found with that title!')
+    }
+
+};
+
+if (document.querySelector('.login-form')) {
+    document
+        .querySelector('.login-form')
+        .addEventListener('submit', loginFormHandler);
+};
 
 if (document.querySelector('#register-form')) {
     document
