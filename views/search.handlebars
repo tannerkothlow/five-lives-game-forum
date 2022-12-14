@@ -14,8 +14,8 @@
           <div class="select is-fullwidth">
             <select name="genre">
               <option value="Select Genre">Select Genre</option>
-              {{#each genre}}
-<option>{{this.name}}</option>
+{{#each genre}}
+<option><a href="/submisisons/by-genre/{{this.name}}">{{this.name}}</a></option>
 {{/each}}
             </select>
           </div>
