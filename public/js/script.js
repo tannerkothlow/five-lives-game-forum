@@ -41,6 +41,7 @@ const newUser = async (event) => {
             alert('Oops! Something went wrong.')
         }
     }
+    
 };
 //logout
 const logout = async () => {
@@ -158,10 +159,10 @@ if (document.querySelector('#login-button')) {
         .addEventListener('click', loginFormHandler);
 };
 
-if (document.querySelector('#register-form')) {
+if (document.querySelector('#register-button')) {
     document
-        .querySelector('#register-form')
-        .addEventListener('submit', newUser);
+        .querySelector('#register-button')
+        .addEventListener('click', newUser);
 };
 
 if (document.querySelector('#logout-button')) {
