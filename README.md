@@ -8,18 +8,18 @@ We created a web application that functions as a video game forum. Users can pos
 
 Input a .env file to the root:
 
-![.env file example](env-example.png)
+![.env file example](images/env-example.png)
 
 ## Usage 
 
-This web application was created using JavaScript, mySQL, Heroku, and Bulma CSS framework.
+This web application was created using JavaScript, mySQL, Handlebars.js, Heroku, and Bulma CSS framework.
 
 
 #### The work done can be found on the GitHub repository [tannerkothlow/five-lives-game-forum](https://github.com/tannerkothlow/five-lives-game-forum)
 - The actual product can be found **[here](https://hidden-fjord-30067.herokuapp.com/)** and should look along the lines of this depending on device screen size:
 
 
-![Five Lives Game Forum example](Five-Lives-Game-Forum.png)
+![Five Lives Game Forum example](images/Five-Lives-Game-Forum.png)
 
 
 ## Credits
