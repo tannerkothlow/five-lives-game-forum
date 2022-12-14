@@ -49,6 +49,27 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/:genre', async (req, res) => {
+    try {
+        const genreID = await Genre.findOne({
+            where: {
+                title: req.params.genre,
+            },
+        })
+        console.log(genreID);
+        
+        const postData = await Post.findAll({
+            where: {
+
+            }
+        });
+        const posts = postData.map((posts) => posts.get({ plain: true }));
+        res.render('submissions', posts);
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
+
 // POST '/:id'
 // checks if req.session.logged_in is true before sending the comment, redirects to /login if false
 // takes in data from front end and creates a new comment
