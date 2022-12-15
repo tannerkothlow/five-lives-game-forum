@@ -83,11 +83,11 @@ const newPost = async (event) => {
 const newComment = async (event) => {
     event.preventDefault();
 
-    const body = document.querySelector('#comment-body').value.trim();
+    const body = document.querySelector('#new-comment').value.trim();
     const currentPostUrlID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
     if (body) {
-        const response = await fetch(`/post/${currentPostUrlID}`, {
+        const response = await fetch(`/submissions/${currentPostUrlID}`, {
             method: 'POST',
             body: JSON.stringify({ body }),
             headers: { 'Content-Type': 'application/json' },
@@ -189,10 +189,10 @@ if (document.querySelector('#new-post-button')) {
         .addEventListener('click', newPost);
 };
 
-if (document.querySelector('#comment-form')) {
+if (document.querySelector('#new-comment-button')) {
     document
-        .querySelector('#comment-form')
-        .addEventListener('submit', newComment);
+        .querySelector('#new-comment-button')
+        .addEventListener('click', newComment);
 }
 if (document.querySelector('#user-delete-button')) {
     document

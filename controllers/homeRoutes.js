@@ -34,6 +34,9 @@ router.get('/', async (req, res) => {
         const reviews = reviewData.map((reviews) => reviews.get({ plain: true }));
         const guides = guideData.map((guides) => guides.get({ plain: true }));
 
+        reviews.reverse();
+        guides.reverse();
+
         const content = [reviews, guides];
 
         console.log(content);
