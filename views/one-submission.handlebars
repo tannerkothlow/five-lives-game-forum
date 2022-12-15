@@ -1,6 +1,23 @@
 <section class="section">
+  {{!-- <p>{{post.post_type}}</p> --}}
   <h1 class="title">{{post.title}}</h1>
+  <p>{{post.user.username}}</p>
+  <p>{{post.date_created}}</p>
   <h2 class="subtitle">
    {{post.post_text}}
   </h2>
 </section>
+
+<textarea id="new-comment" class="textarea" placeholder="Leave a comment"></textarea>
+<button id="new-comment-button" class="button is-link">Submit</button>
+
+<p id="comment-header">Comments</p>
+
+<div class="comment-container">
+{{#each post.comments as |comment|}}
+<div class="one-comment">
+<p class="comment-user">{{comment.user.username}}</p>
+<h3>{{comment.comment_text}}</h3>
+</div>
+{{/each}}
+</div>

@@ -5,3 +5,34 @@
 #logout-button:hover {
     cursor: pointer;
 }
+
+.rg-header{
+    margin-top: 3%;
+    margin-left: 3%;
+    padding-bottom: 1%;
+    font-weight: 500;
+    border-bottom: 1px solid black;
+    width: 50%
+}
+
+#comment-header{
+    margin: 3% 0% 3% 3%;
+    padding-bottom: 1%;
+    border-bottom: 1px solid black;
+}
+
+#new-comment{
+    width: 50%;
+}
+
+.comment-container{
+    margin-left: 3%;
+}
+
+.one-comment{
+    margin: 1% 0% 1% 0%
+}
+
+.comment-user{
+    font-weight: 500;
+}

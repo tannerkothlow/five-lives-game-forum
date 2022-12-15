@@ -43,8 +43,10 @@ router.get('/:id', async (req, res) => {
                 },
             ],
         });
-
+        
         const post = postData.get({ plain: true });
+        console.log(post)
+
         res.render('one-submission', { post });
     } catch (err) {
         res.status(500).json(err)
@@ -84,7 +86,7 @@ router.get('/by-genre/:genre', async (req, res) => {
 router.post('/:id', async (req, res) => {
     try {
         const commentData = await Comment.create({
-            body: req.body.body,
+            comment_text: req.body.body,
             user_id: req.session.user_id,
             post_id: Number(req.params.id),
         });
