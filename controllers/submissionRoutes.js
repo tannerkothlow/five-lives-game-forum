@@ -43,8 +43,10 @@ router.get('/:id', async (req, res) => {
                 },
             ],
         });
-
+        
         const post = postData.get({ plain: true });
+        console.log(post)
+
         res.render('one-submission', { post });
     } catch (err) {
         res.status(500).json(err)
